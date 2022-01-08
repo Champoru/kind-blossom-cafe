@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Eat cells smaller than you and don't get eaten by the bigger ones, as an MMO">
+    <meta name="keywords" content="agario, agar, io, cell, cells, virus, bacteria, blob, game, games, web game, html5, fun, flash">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Kind-blossom-cafe</title>
+
+    <link id="favicon" rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/index.css" rel="stylesheet">
+    <link href="assets/css/gallery.css" rel="stylesheet">
+
+    <script src="assets/js/quadtree.js"></script>
+    <script src="assets/js/main_out.js"></script>
+  <script src="assets/js/macro.js"></script>
+    <script src="assets/js/quadtree.js"></script>
+    <script src="assets/js/main_out.js"></script>
+    <script src="assets/js/f12disable.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-7035297796723337",
+            enable_page_level_ads: true
+        });
+    </script>
+    <script type="text/javascript">
+        ejectKey = "w";
+        splitKey = " ";
+        doubleSplitKey = "d";
+        tripleSplitKey = "g"
+        sixteenSplitKey = "s"
+        minionSplitKey = "e"
+        minionEjectKey = "r"
+        minionSixteenKey = "a"
+        macroSplitKey = "x"
+
+        let ejectBox = document.querySelector("#eject-keybox");
+        let splitBox = document.querySelector("#split-keybox");
+        let doubleSplitBox = document.querySelector("#doublesplit-keybox");
+        let tripleSplitBox = document.querySelector("#triplesplit-keybox");
+        let sixteenSplitBox = document.querySelector("#sixteensplit-keybox");
+        let minionSplitBox = document.querySelector("#minionsplit-keybox");
+        let minionEjectBox = document.querySelector("#minioneject-keybox");
+        let minionSixteenBox = document.querySelector("#minionsixteen-keybox");
+        let macroSplitBox = document.querySelector("#macrosplit-keybox");
+
+        if (event.keyCode == 67) {
+        // Popsplit macro (C)
+        split();
+        setTimeout(split, Math.random() * (350 - 200) + 200);
+    }
+    if (event.keyCode == 49 || event.keyCode == 83) {
+        // Space macro (s or 1)
+        split();
+    }
+    if (event.keyCode == 16 || event.keyCode == 52) {
+        // Tricksplit Macro (shift or 4)
+        for (var b = 0; b < 4; b++) setTimeout(split, b * 50);
+    }
+    if (event.keyCode == 65 || event.keyCode == 51) {
+        // Triplesplit Macro (a or 3)
+        for (var c = 0; c < 3; c++) setTimeout(split, c * 50);
+    }
+    if (event.keyCode == 68 || event.keyCode == 50) {
+        // Doublesplit Macro (d or 2)
+        split();
+        setTimeout(split, 50);
+
+    </script>
+</head>
+
+
+<body>
+    <div id="gallery" onclick="if (event.target == this) this.hide()" style="display: none;">
+        <div id="gallery-content">
+            <div id="gallery-header">Skins</div>
+            <div id="gallery-body"></div>
+        </div>
+    </div>
+    <div id="overlays" style="display: none;">
+        <div id="helloDialog">
+            <div class="form-group">
+                <h2 id="title">ӄɨռɖ-ɮʟօֆֆօʍ-Cαϝҽ</h2>
+            </div>
+
+            <div class="form-group">
+                <input id="nick" class="form-control" placeholder="Nickname" maxlength="150000">
+                <input id="skin" class="form-control"  placeholder="Skin Name">
+                <select id="gamemode" class="form-control" onchange="setserver(this.value)" required>
+                  <!-- Main Servers -->
+                  </optgroup><optgroup label="Main">
+              <option value="electricpro.glitch.me"select>Mαιɳ</option>
+              <option value="ch-agario.glitch.me"select>Cԋ Aɠαɾισ</option>
+              <option value="mgagar.glitch.me"select>free admin</option>
+              <option value="aware-sleepy-knee.glitch.me"select>Self Merge+Self Feed</option>
+              <option value="alder-hilarious-pediatrician.glitch.me"select>Self Merge *only merge*</option>
+               <option value="pure-official-agario.glitch.me"select>Pure Agario</option>
+              <option value="boggy-wary-moonflower.glitch.me"select>Experiment</option>
+              <option value=""select>Talk About Working</option>
+              <option value=""select>Yeah Talk Abt Constunction!</option>
+                   <!-- Kg Modes -->
+              </optgroup><optgroup label="❰㉿❱ 𝙆𝙂 Λɢᴀʀɪᴏ Server's ❰㉿❱">       
+              <option value="kg-agario.glitch.me">ӄɢ Aɠαɾισ</option>
+              <option value="kg-backup.glitch.me">ӄɢ Aɠαɾισ backup</option>
+             
+                  <!-- <option value="agarevent.mkchat.net:8443">Event test [AU]</option> -->
+                </optgroup></select>
+                
+                  
+                </select>
+            </div>
+
+            <button id="play-btn" class="btn btn-play btn-primary btn-needs-server">𝙋𝙡𝙖𝙮</button>
+            <button id="spectate-btn" onclick="spectate()" class="btn btn-warning btn-spectate btn-needs-server glyphicon glyphicon-🍩eye-open">✐</button>
+            <button id="gallery-btn" onclick="openSkinsList()" class="btn btn-play btn-primary btn-needs-server btn-info">𝗦𝗸𝗶𝗻𝘀</button>
+
+            <div id="settings" class="checkbox">
+                <div style="margin: 6px;">
+                    <label><input id="showSkins" type="checkbox">ѕкιηѕ</label>
+                    <label><input id="showNames" type="checkbox">ηαмєѕ</label>
+                    <label><input id="darkTheme" type="checkbox">∂αяк</label>
+                    <label><input id="showColor" type="checkbox">¢σℓσя</label>
+                    <label><input id="showMass" type="checkbox">мαѕѕ</label>
+                    <label><input id="showChat" type="checkbox">¢нαт</label>
+                    <label><input id="showMinimap" type="checkbox">мιηι мαρ</label>
+                    <label><input id="showPosition" type="checkbox">ρσѕιтιση</label>
+                    <label><input id="showBorder" type="checkbox">вσя∂єя</label>
+                    <label><input id="showGrid" type="checkbox">gяι∂</label>
+                    <label><input id="moreZoom" type="checkbox">zσσм-συт</label>
+                    <label><input id="fillSkin" type="checkbox">ƒιℓℓ ѕкιη</label>
+                    <label><input id="backgroundSectors" type="checkbox">вα¢кgяσυη∂ ѕє¢тσяѕ</label>
+                    <label><input id="jellyPhysics" type="checkbox">נєℓℓу ρнуѕι¢ѕ</label>
+                    <label>
+                        <input id="playSounds" type="checkbox">Sσυɳԃʂ
+                        <input id="soundsVolume" type="range" min="0" max="1" step="any">
+                      
+                    </label>
+                </div>
+            </div>
+
+            <div id="instructions">
+                <hr>
+                <center>
+                    <span class="text-muted">
+                        Have Fun<br>
+                        Press <b>Space</b> to split<br>
+                        Press <b>W</b> to eject some mass<br>
+                        <br>
+                    </span>
+                </center>
+            </div>
+
+            <hr>
+            <div id="footer">
+                <button class="btn btn-success" onclick=" window.open('https://butterzz.glitch.me','_blank')" style="background: linear-gradient(90deg, rgba(174,238,211,1) 0%, rgba(119,204,212,1) 47%, rgba(47,255,25,1) 100%);" ><b>Talk With Your Frinds On Chatroom!!!!</b></button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="connecting">
+        <div id="connecting-content">
+            <h2>Connecting</h2>
+            <p> Attempting Connection or not lol .</p>
+        </div>
+    </div>
+
+    <div id="mobileStuff" style="display: none;">
+        <div id="touchpad"></div>
+        <div id="touchCircle" style="display: none;"></div>
+        <img src="/assets/img/split.png" id="splitBtn">
+        <img src="/assets/img/eject.png" id="ejectBtn">
+    </div>
+
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <input type="text" id="chat_textbox" placeholder="𝗣𝗿𝗲𝘀𝘀 𝗘𝗻𝘁𝗲𝗿 𝗧𝗼 𝗖𝗵𝗮𝘁" maxlength="209595995489985859848943893489348943894389348943948895489548954895549800000">
+    <div style="font-family:'Ubuntu'">&nbsp;</div>
+</body>
+</html>
